@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5hb0sob6by7o"]
+
+[sub_resource type="GDScript" id="GDScript_sdtrq"]
+script/source = "extends StaticBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilwiv"]
+
+[node name="ClickerBase" type="StaticBody2D"]
+script = SubResource("GDScript_sdtrq")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ilwiv")
