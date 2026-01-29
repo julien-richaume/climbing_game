@@ -1,7 +1,8 @@
 extends Button
  
 @onready var scorelabel: Label = %UI/Score
-@onready var SoundPlayer = %SoundPlayer
+@onready var SoundPlayer = %ClickingSound
+
 @onready var score : int = 0
 
 # Called when the node enters the scene tree for the first time.

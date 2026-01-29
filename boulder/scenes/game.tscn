@@ -1,13 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://x07s3sqvpe78"]
+[gd_scene load_steps=7 format=3 uid="uid://x07s3sqvpe78"]
 
 [ext_resource type="PackedScene" uid="uid://c5hb0sob6by7o" path="res://scenes/clicker_base.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cdoymm0m7wauy" path="res://assets/images/bleau.jpg" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dhpb0j70jfbn5" path="res://scenes/generic_label.tscn" id="2_lbhrr"]
 [ext_resource type="AudioStream" uid="uid://dhbea44rcqdbe" path="res://assets/sounds/Pop.mp3" id="2_lnu2h"]
-[ext_resource type="FontFile" uid="uid://bc2yu3ndhj0j1" path="res://assets/fonts/04B_30__.TTF" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://x01rn0xrtbtt" path="res://scenes/generic_sound.tscn" id="4_lbhrr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbhrr"]
 
 [node name="Game" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(578, 324)
@@ -16,6 +20,13 @@ texture = ExtResource("1_yqjtg")
 
 [node name="UI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+
+[node name="Score" parent="UI" instance=ExtResource("2_lbhrr")]
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 245.0
+offset_bottom = 45.0
+text = "Score : 0"
 
 [node name="ClickerBase" parent="UI" instance=ExtResource("1_uwrxv")]
 offset_left = 447.0
@@ -34,19 +45,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbhrr")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_lbhrr")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lbhrr")
 
-[node name="Score" type="Label" parent="UI"]
-offset_left = 24.0
-offset_top = 13.0
-offset_right = 1112.0
-offset_bottom = 160.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("3_lbhrr")
-theme_override_font_sizes/font_size = 32
-text = "Score : 0"
-
-[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ClickingSound" parent="." instance=ExtResource("4_lbhrr")]
 unique_name_in_owner = true
 stream = ExtResource("2_lnu2h")
-autoplay = true
