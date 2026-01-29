@@ -1,33 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://x07s3sqvpe78"]
+[gd_scene load_steps=6 format=3 uid="uid://x07s3sqvpe78"]
 
 [ext_resource type="PackedScene" uid="uid://c5hb0sob6by7o" path="res://scenes/clicker_base.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cdoymm0m7wauy" path="res://assets/images/bleau.jpg" id="1_yqjtg"]
 [ext_resource type="AudioStream" uid="uid://dhbea44rcqdbe" path="res://assets/sounds/Pop.mp3" id="2_lnu2h"]
+[ext_resource type="FontFile" uid="uid://bc2yu3ndhj0j1" path="res://assets/fonts/04B_30__.TTF" id="3_lbhrr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbhrr"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(578.5, 324)
+position = Vector2(578, 324)
 scale = Vector2(1.19896, 1.00937)
 texture = ExtResource("1_yqjtg")
 
 [node name="UI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 
+[node name="ClickerBase" parent="UI" instance=ExtResource("1_uwrxv")]
+offset_left = 447.0
+offset_top = 240.0
+offset_right = 711.0
+offset_bottom = 504.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lbhrr")
+
 [node name="Score" type="Label" parent="UI"]
-offset_left = 7.0
-offset_top = 9.0
-offset_right = 207.0
-offset_bottom = 113.0
+offset_left = 24.0
+offset_top = 13.0
+offset_right = 1112.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lbhrr")
+theme_override_font_sizes/font_size = 32
 text = "Score : 0"
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_lnu2h")
 autoplay = true
-
-[node name="ClickerBase" parent="." instance=ExtResource("1_uwrxv")]
-offset_left = 452.0
-offset_top = 260.0
-offset_right = 716.0
-offset_bottom = 524.0
