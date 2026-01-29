@@ -4,28 +4,34 @@ extends Button
 @onready var SoundPlayer = %ClickingSound
 
 @onready var score : int = 0
+@onready var power : int = 1
+
+@onready var jug : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	var power_listener = get_node("../Power")
+	power_listener.power_update.connect(on_update_power)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
-func update_score() -> void:
-	score += 1
+func update_score(p: int) -> void:
+	score += p
 
-func update_label() -> void:
-	scorelabel.text = "Score : "+ str(score)
+signal update_label(new_score)
 
 func play_clicking_sound() -> void:
 	SoundPlayer.play()
 
+func on_update_power(new_power): 
+	power = new_power
+	
 func _on_pressed() -> void:
 	## Update score
-	update_score()
+	update_score(power)
 	## Update score label
-	update_label()
+	update_label.emit(score)
 	## Play sound
 	play_clicking_sound()

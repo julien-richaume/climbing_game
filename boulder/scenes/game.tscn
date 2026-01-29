@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://x07s3sqvpe78"]
+[gd_scene load_steps=11 format=3 uid="uid://x07s3sqvpe78"]
 
 [ext_resource type="PackedScene" uid="uid://c5hb0sob6by7o" path="res://scenes/clicker_base.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cdoymm0m7wauy" path="res://assets/images/bleau.jpg" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dhpb0j70jfbn5" path="res://scenes/generic_label.tscn" id="2_lbhrr"]
 [ext_resource type="AudioStream" uid="uid://dhbea44rcqdbe" path="res://assets/sounds/Pop.mp3" id="2_lnu2h"]
+[ext_resource type="Script" uid="uid://bb2yfndcgs1ok" path="res://scenes/score.gd" id="3_gee14"]
+[ext_resource type="Script" uid="uid://d32twf58o3pta" path="res://scenes/power.gd" id="4_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://x01rn0xrtbtt" path="res://scenes/generic_sound.tscn" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://cf0c21bqo3vte" path="res://assets/images/yellow_jug.png" id="4_p57ef"]
+[ext_resource type="Script" uid="uid://br3n4ebrd75oi" path="res://scenes/jug_power_up.gd" id="5_u5sy4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbhrr"]
 
@@ -27,6 +31,15 @@ offset_top = 12.0
 offset_right = 245.0
 offset_bottom = 45.0
 text = "Score : 0"
+script = ExtResource("3_gee14")
+
+[node name="Power" parent="UI" instance=ExtResource("2_lbhrr")]
+offset_left = 876.0
+offset_top = 9.0
+offset_right = 1108.0
+offset_bottom = 42.0
+text = "Power : 1"
+script = ExtResource("4_0tnpc")
 
 [node name="ClickerBase" parent="UI" instance=ExtResource("1_uwrxv")]
 offset_left = 447.0
@@ -44,6 +57,25 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lbhrr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbhrr")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_lbhrr")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lbhrr")
+
+[node name="JugPowerUp" parent="UI" instance=ExtResource("1_uwrxv")]
+offset_left = 10.0
+offset_top = 340.0
+offset_right = 74.0
+offset_bottom = 404.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lbhrr")
+icon = ExtResource("4_p57ef")
+script = ExtResource("5_u5sy4")
 
 [node name="ClickingSound" parent="." instance=ExtResource("4_lbhrr")]
 unique_name_in_owner = true
