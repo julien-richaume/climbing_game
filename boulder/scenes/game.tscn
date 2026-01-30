@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://x07s3sqvpe78"]
+[gd_scene load_steps=13 format=3 uid="uid://x07s3sqvpe78"]
 
 [ext_resource type="PackedScene" uid="uid://c5hb0sob6by7o" path="res://scenes/clicker_base.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cdoymm0m7wauy" path="res://assets/images/bleau.jpg" id="1_yqjtg"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://x01rn0xrtbtt" path="res://scenes/generic_sound.tscn" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://cf0c21bqo3vte" path="res://assets/images/yellow_jug.png" id="4_p57ef"]
 [ext_resource type="Script" uid="uid://br3n4ebrd75oi" path="res://scripts/jug_power_up.gd" id="5_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://doxdt6h0mvrae" path="res://assets/images/Alex_Honnold.jpeg" id="8_kvpfn"]
+[ext_resource type="Script" uid="uid://npo2kfx0ub5q" path="res://scripts/coach_honnold.gd" id="9_dinhu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbhrr"]
 
@@ -77,6 +79,32 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_lbhrr")
 icon = ExtResource("4_p57ef")
 script = ExtResource("5_u5sy4")
 
+[node name="CoachHonnold" parent="UI" instance=ExtResource("1_uwrxv")]
+offset_left = 1002.0
+offset_top = 420.0
+offset_right = 3736.0
+offset_bottom = 4062.0
+scale = Vector2(0.04, 0.04)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_lbhrr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lbhrr")
+icon = ExtResource("8_kvpfn")
+script = ExtResource("9_dinhu")
+
 [node name="ClickingSound" parent="." instance=ExtResource("4_lbhrr")]
 unique_name_in_owner = true
 stream = ExtResource("2_lnu2h")
+
+[node name="HonnoldTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="HonnoldTimer" to="UI/Score" method="on_honnold_timer_timeout"]
