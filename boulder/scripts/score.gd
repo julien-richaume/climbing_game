@@ -21,7 +21,6 @@ func update_score():
 func on_coach_hired(mult):
 	# when coach hired, auto increases
 	auto += mult
-	print(1.0/auto)
 	HonnoldTimer.wait_time = 1.0/auto
 	HonnoldTimer.start()
 

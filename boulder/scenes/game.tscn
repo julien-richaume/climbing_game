@@ -28,26 +28,26 @@ texture = ExtResource("1_yqjtg")
 unique_name_in_owner = true
 
 [node name="Score" parent="UI" instance=ExtResource("2_lbhrr")]
-offset_left = 13.0
-offset_top = 12.0
-offset_right = 245.0
-offset_bottom = 45.0
+offset_left = 907.0
+offset_top = 16.0
+offset_right = 1139.0
+offset_bottom = 49.0
 text = "Score : 0"
 script = ExtResource("3_gee14")
 
 [node name="Power" parent="UI" instance=ExtResource("2_lbhrr")]
-offset_left = 876.0
-offset_top = 9.0
-offset_right = 1108.0
-offset_bottom = 42.0
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 252.0
+offset_bottom = 52.0
 text = "Power : 1"
 script = ExtResource("4_0tnpc")
 
 [node name="ClickerBase" parent="UI" instance=ExtResource("1_uwrxv")]
-offset_left = 447.0
-offset_top = 240.0
-offset_right = 711.0
-offset_bottom = 504.0
+offset_left = 465.0
+offset_top = 287.0
+offset_right = 729.0
+offset_bottom = 551.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lbhrr")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_lbhrr")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_lbhrr")
@@ -61,10 +61,10 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_lbhrr")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lbhrr")
 
 [node name="JugPowerUp" parent="UI" instance=ExtResource("1_uwrxv")]
-offset_left = 10.0
-offset_top = 340.0
-offset_right = 74.0
-offset_bottom = 404.0
+offset_left = 34.0
+offset_top = 426.0
+offset_right = 98.0
+offset_bottom = 490.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lbhrr")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_lbhrr")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_lbhrr")
