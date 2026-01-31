@@ -3,6 +3,8 @@ extends Label
 var score : int = 0
 var auto : int = 0
 
+@onready var HonnoldTimer = %HonnoldTimer
+
 func _ready():
 	# Connect clicking signal to local function
 	var Clicker = get_node("../ClickerBase")
@@ -19,12 +21,13 @@ func update_score():
 func on_coach_hired(mult):
 	# when coach hired, auto increases
 	auto += mult
+	print(1.0/auto)
+	HonnoldTimer.wait_time = 1.0/auto
+	HonnoldTimer.start()
 
 func on_honnold_timer_timeout():
-	# every time the timer ends for honnold, update score
-	score += auto
+	score += 1
 	update_score()
-
 
 func on_label_update(added_score):
 	# score update for the clicker

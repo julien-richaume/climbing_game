@@ -104,7 +104,6 @@ unique_name_in_owner = true
 stream = ExtResource("2_lnu2h")
 
 [node name="HonnoldTimer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
+unique_name_in_owner = true
 
 [connection signal="timeout" from="HonnoldTimer" to="UI/Score" method="on_honnold_timer_timeout"]
