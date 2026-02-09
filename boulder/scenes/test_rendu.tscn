@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://5krbg3ouis3n"]
+
+[ext_resource type="PackedScene" uid="uid://dhpb0j70jfbn5" path="res://scenes/generic_label.tscn" id="1_6lton"]
+[ext_resource type="PackedScene" uid="uid://c5hb0sob6by7o" path="res://scenes/clicker_base.tscn" id="1_b2e12"]
+[ext_resource type="PackedScene" uid="uid://x01rn0xrtbtt" path="res://scenes/generic_sound.tscn" id="3_gc7xy"]
+[ext_resource type="AudioStream" uid="uid://dhbea44rcqdbe" path="res://assets/sounds/Pop.mp3" id="4_qkjim"]
+
+[node name="TestRendu" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Score" parent="UI" instance=ExtResource("1_6lton")]
+offset_left = 21.0
+offset_top = 12.0
+offset_right = 253.0
+offset_bottom = 45.0
+text = "Score : 0"
+
+[node name="ClickerBase" parent="UI" instance=ExtResource("1_b2e12")]
+offset_left = 141.0
+offset_top = 124.0
+offset_right = 405.0
+offset_bottom = 388.0
+
+[node name="ClickingSound" parent="." instance=ExtResource("3_gc7xy")]
+unique_name_in_owner = true
+stream = ExtResource("4_qkjim")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2

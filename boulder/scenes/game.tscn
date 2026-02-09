@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://x07s3sqvpe78"]
+[gd_scene load_steps=14 format=3 uid="uid://x07s3sqvpe78"]
 
 [ext_resource type="PackedScene" uid="uid://c5hb0sob6by7o" path="res://scenes/clicker_base.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cdoymm0m7wauy" path="res://assets/images/bleau.jpg" id="1_yqjtg"]
@@ -11,13 +11,11 @@
 [ext_resource type="Script" uid="uid://br3n4ebrd75oi" path="res://scripts/jug_power_up.gd" id="5_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://doxdt6h0mvrae" path="res://assets/images/Alex_Honnold.jpeg" id="8_kvpfn"]
 [ext_resource type="Script" uid="uid://npo2kfx0ub5q" path="res://scripts/coach_honnold.gd" id="9_dinhu"]
+[ext_resource type="AudioStream" uid="uid://dpxfrl7nrb4x1" path="res://assets/sounds/wrong_1.mp3" id="12_dinhu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbhrr"]
 
 [node name="Game" type="Node2D"]
-
-[node name="TileMap" type="TileMap" parent="."]
-format = 2
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(578, 324)
@@ -28,18 +26,19 @@ texture = ExtResource("1_yqjtg")
 unique_name_in_owner = true
 
 [node name="Score" parent="UI" instance=ExtResource("2_lbhrr")]
-offset_left = 907.0
-offset_top = 16.0
-offset_right = 1139.0
-offset_bottom = 49.0
+offset_left = 712.0
+offset_top = 21.0
+offset_right = 1141.0
+offset_bottom = 54.0
 text = "Score : 0"
+horizontal_alignment = 2
 script = ExtResource("3_gee14")
 
 [node name="Power" parent="UI" instance=ExtResource("2_lbhrr")]
-offset_left = 20.0
-offset_top = 19.0
-offset_right = 252.0
-offset_bottom = 52.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 246.0
+offset_bottom = 47.0
 text = "Power : 1"
 script = ExtResource("4_0tnpc")
 
@@ -99,9 +98,17 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_lbhrr")
 icon = ExtResource("8_kvpfn")
 script = ExtResource("9_dinhu")
 
-[node name="ClickingSound" parent="." instance=ExtResource("4_lbhrr")]
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="ClickingSound" parent="Sounds" instance=ExtResource("4_lbhrr")]
 unique_name_in_owner = true
 stream = ExtResource("2_lnu2h")
+
+[node name="CantBuySound" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("12_dinhu")
+volume_db = -24.143
+pitch_scale = 1.65
 
 [node name="HonnoldTimer" type="Timer" parent="."]
 unique_name_in_owner = true

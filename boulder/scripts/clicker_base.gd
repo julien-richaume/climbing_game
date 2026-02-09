@@ -1,10 +1,10 @@
 extends Button
- 
-#@onready var scorelabel: Label = %UI/Score
+
 @onready var SoundPlayer = %ClickingSound
 
-#@onready var score : int = 0
 @onready var power : int = 1
+
+signal update_label(added_score)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,20 +15,16 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-#func update_score(p: int) -> void:
-#	score += p
-
-signal update_label(added_score)
 
 func play_clicking_sound() -> void:
 	SoundPlayer.play()
 
 func on_update_power(new_power): 
+	print('new_power : ')
+	print(new_power)
 	power = new_power
 	
 func _on_pressed() -> void:
-	## Update score
-	# update_score(power)
 	## Update score and label 
 	update_label.emit(power)
 	## Play sound

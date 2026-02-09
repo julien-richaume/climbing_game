@@ -3,16 +3,21 @@ extends Label
 var score : int = 0
 var auto : int = 0
 
-@onready var HonnoldTimer = %HonnoldTimer
+@onready var HonnoldTimer = get_node("/root/Game/HonnoldTimer")
 
 func _ready():
 	# Connect clicking signal to local function
-	var Clicker = get_node("../ClickerBase")
+	var Clicker = get_node("/root/Game/UI/ClickerBase")
 	Clicker.update_label.connect(on_label_update)
 	
 	# Connect coach hirring signal to local function
-	var Honnold = get_node("../CoachHonnold")
+	var Honnold = get_node("/root/Game/UI/CoachHonnold")
 	Honnold.honnold_hired.connect(on_coach_hired)
+	# Connect apply cost signal to local function
+	Honnold.apply_cost.connect(on_label_update)
+	
+	var JugPowerUp = get_node("/root/Game/UI/JugPowerUp")
+	JugPowerUp.apply_cost.connect(on_label_update)
 
 #generic function to update score
 func update_score():
@@ -30,5 +35,6 @@ func on_honnold_timer_timeout():
 
 func on_label_update(added_score):
 	# score update for the clicker
+	print(added_score)
 	score += added_score
 	update_score()

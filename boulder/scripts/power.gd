@@ -1,6 +1,6 @@
 extends Label
 
-var power : int = 0
+var power : int = 1
 
 signal power_update(new_power)
 
