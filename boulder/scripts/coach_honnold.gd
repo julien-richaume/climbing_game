@@ -1,6 +1,6 @@
 extends Button
 
-@onready var auto_click : int = 1
+@onready var auto_click_power : int = 1
 @onready var cost_honnold : int = 50
 
 @onready var HonnoldTimer = %HonnoldTimer
@@ -17,9 +17,10 @@ func _process(_delta: float) -> void:
 	pass
 	
 func _on_pressed() -> void:
+	print(cost_honnold, "score:", Score.score)
 	if Score.score>=cost_honnold:
 		## Sinal to power that we are stronger
-		honnold_hired.emit(auto_click)
+		honnold_hired.emit(auto_click_power)
 		## Play sound
 		#
 		## Apply cost

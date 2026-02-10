@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cdoymm0m7wauy" path="res://assets/images/bleau.jpg" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dhpb0j70jfbn5" path="res://scenes/generic_label.tscn" id="2_lbhrr"]
 [ext_resource type="AudioStream" uid="uid://dhbea44rcqdbe" path="res://assets/sounds/Pop.mp3" id="2_lnu2h"]
-[ext_resource type="Script" uid="uid://bb2yfndcgs1ok" path="res://scripts/score.gd" id="3_gee14"]
+[ext_resource type="Script" uid="uid://cml6pfesbi6op" path="res://scenes/score_ui.gd" id="3_dinhu"]
 [ext_resource type="Script" uid="uid://d32twf58o3pta" path="res://scripts/power.gd" id="4_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://x01rn0xrtbtt" path="res://scenes/generic_sound.tscn" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://cf0c21bqo3vte" path="res://assets/images/yellow_jug.png" id="4_p57ef"]
@@ -32,7 +32,7 @@ offset_right = 1141.0
 offset_bottom = 54.0
 text = "Score : 0"
 horizontal_alignment = 2
-script = ExtResource("3_gee14")
+script = ExtResource("3_dinhu")
 
 [node name="Power" parent="UI" instance=ExtResource("2_lbhrr")]
 offset_left = 14.0

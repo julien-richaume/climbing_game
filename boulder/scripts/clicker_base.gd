@@ -25,7 +25,8 @@ func on_update_power(new_power):
 	power = new_power
 	
 func _on_pressed() -> void:
-	## Update score and label 
+	## Update score and label
+	print_debug("sending signal with power : ", power) 
 	update_label.emit(power)
 	## Play sound
 	play_clicking_sound()
